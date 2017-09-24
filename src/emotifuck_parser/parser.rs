@@ -33,11 +33,7 @@ impl Parser {
         let mut source = String::new();
         f.read_to_string(&mut source)?;
         let source = emotifuck_grammar::content(source.as_ref())?;
-        
-        let mut types = Vec<Emotifuck>::new();
-        
-        source.iter().map(|x| types.push(x));
-        Ok(Parser{types})
+        Ok(Parser{types: source})
 	}
 }
 
