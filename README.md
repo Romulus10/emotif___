@@ -1,6 +1,8 @@
 # emotif___
 An emojified dialect of brainf**k written in Rust.
 
+The full documentation is located on [gitbooks](https://romulus10.gitbooks.io/emotif___/).
+
 ## Brainf**k
 Brainf**k is an esoteric programming language created in 1993 by Urban Muller. It consists of 8 commands and an instruction pointer.
 
@@ -22,3 +24,6 @@ Programs are represented by strings of these emojis in text files. In brainf**k,
 
 
 `++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.`
+
+The emotif\*\*k equivalet is:
+`👍👍👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍👍👍👍🔥👍👍👍👍👍👍👍👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍👍💞🔥👍💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥👍👍💞💯💯👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍💞🔥💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥👍💞🔥💞`
