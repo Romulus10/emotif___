@@ -1,7 +1,11 @@
 [package]
 name = "emotif___"
 version = "0.1.0"
-authors = ["Sean Batzel <romulus108@protonmail.com>"]
+authors = ["Sean Batzel <romulus108@protonmail.com>", "Andrew Plaza <andrew.plaza@protonmail.com"]
+build = "src/build.rs"
 
 [dependencies]
+colored = "1.5.2"
+
+[build-dependencies]
 peg = "0.5.4"
