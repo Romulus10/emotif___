@@ -29,3 +29,5 @@ This is our own special take on brainf**k - instead of the traditional commands,
 |    F0 9F 99 8F    | [U+1F64F](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f64f) |     Input     |
 |    F0 9F 8C 9A    | [U+1F31A](https://apps.timwhitlock.info/unicode/inspect/hex/1F31A) | Jump Forward  |
 |    F0 9F 90 B8    | [U+1F438](https://apps.timwhitlock.info/unicode/inspect/hex/1F438) | Jump Backward |
+
+Programs are represented by strings of these emojis in text files.
