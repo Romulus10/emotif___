@@ -7,7 +7,7 @@ use std::io;
 use std::io::Read;
 use std::io::Write;
 
-use types::Emotifuck;
+use core::types::Emotifuck;
 
 pub struct State {
     pub program: Vec<i32>,
