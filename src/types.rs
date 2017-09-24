@@ -10,4 +10,4 @@ pub enum Emotifuck {
    JumpBackward, //frog
 }
 
-/// Vec<Emotifuck>
+// Vec<Emotifuck>

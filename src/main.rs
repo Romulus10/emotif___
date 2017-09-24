@@ -1,6 +1,7 @@
 use std::env;
 use std::fs::File;
 mod emotifuck_parser;
+mod types;
 
 fn main() {
     let args : Vec<String> = env::args().collect();
