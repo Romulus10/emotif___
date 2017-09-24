@@ -15,13 +15,26 @@ pub mod emotifuck_grammer {
 
 #[derive(Debug)]
 pub struct Parser {
-	emotifuckTypes: Vec<Emotifuck>,
+    types: Vec<Emotifuck>,
 }
 
+/// Runs the grammar on the source file
+/// does any other needed transformations 
+/// until it's passed to the interpreter
 impl Parser {
 	pub fn new(source_file: &str) -> Result<Parser, ParseError> {
-		
+	    let mut f = File::open(config_file)?;
+
+        let mut config = String::new();
+        f.read_to_string(&mut config)?;
+        let config = emotifuck_grammar::content(config.as_ref())?;
+        
+        let mut types = Vec::new();
+        
+        config.iter().map(|x| types.push(x));
 	}
+
+    Ok(Parser {types})
 }
 
 #[cfg(test)]
