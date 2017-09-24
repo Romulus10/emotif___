@@ -4,7 +4,7 @@ An emojified dialect of brainf**k written in Rust.
 The full documentation is located on [gitbooks](https://romulus10.gitbooks.io/emotif___/).
 
 ## Brainf**k
-Brainf**k is an esoteric programming language created in 1993 by Urban Muller. It consists of 8 commands and an instruction pointer.
+Brainf**k is an esoteric, Turing-complete programming language created in 1993 by Urban Muller. It consists of 8 commands and an instruction pointer. Usually, the commands are used to move along a single array of individual bytes and increment, decrement, input, and output.
 
 ## Emotif**k
 This is our own special take on brainf**k - instead of the traditional commands, it uses UTF-8 emojis. The commands are as follows:
@@ -26,4 +26,5 @@ Programs are represented by strings of these emojis in text files. In brainf**k,
 `++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.`
 
 The emotif\*\*k equivalet is:
+
 `👍👍👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍👍👍👍🔥👍👍👍👍👍👍👍👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍👍💞🔥👍💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥👍👍💞💯💯👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍💞🔥💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥👍💞🔥💞`

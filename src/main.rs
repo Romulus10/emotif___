@@ -25,5 +25,7 @@ fn main() {
                 process::exit(1);
             }
         };
+        let target = compile(parser.types);
+        interpret(target);
     }
 }
