@@ -1,4 +1,3 @@
-use super::*;
 
 /// everything except Unicode Emojis (Rustpeg doesn't include that in the . rule)
 anything -> ()

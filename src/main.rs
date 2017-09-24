@@ -9,8 +9,6 @@ mod interpreter;
 mod emotifuck_parser;
 
 use std::env;
-use std::io::Read;
-use std::fs::File;
 use std::process;
 use std::error::Error;
 use colored::Colorize;

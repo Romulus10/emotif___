@@ -6,7 +6,6 @@
 use std::io::prelude::*;
 use std::fs::File;
 use std::fmt;
-use std::error::Error;
 
 use self::err::ParserError;
 use core::types::Emotifuck;
