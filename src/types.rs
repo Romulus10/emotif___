@@ -1,4 +1,5 @@
 /// enumerated types in the Emotifuck language
+#[derive(Debug)]
 pub enum Emotifuck {
    MoveRight, // fire
    MoveLeft,  // 100

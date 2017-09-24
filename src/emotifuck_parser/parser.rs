@@ -7,9 +7,9 @@ use std::fs::File;
 use std::fmt;
 use std::error::Error;
 
-use emotifuck_parser::err::ParserError;
+use self::err::ParserError;
 use types::Emotifuck;
-
+use emotifuck_parser::*;
 
 /// Structs and Stuff
 /// includes the generated code from PEG
@@ -28,12 +28,12 @@ pub struct Parser {
 /// does any other needed transformations 
 /// until it's passed to the interpreter
 impl Parser {
-	pub fn new(source_file: &str) -> Result<Parser, ParseError> {
-	    let mut f = File::open(config_file)?;
+	pub fn new(source_file: &str) -> Result<Parser, ParserError> {
+	    let mut f = File::open(source_file)?;
 
-        let mut config = String::new();
-        f.read_to_string(&mut config)?;
-        let config = emotifuck_grammar::content(config.as_ref())?;
+        let mut source = String::new();
+        f.read_to_string(&mut source)?;
+        let source = emotifuck_grammar::content(source.as_ref())?;
         
         let mut types = Vec::new();
         
@@ -44,7 +44,6 @@ impl Parser {
 
 #[cfg(test)]
 #[test]
-fn test_parser() {
-    
+fn test_grammar() {
 
 }
