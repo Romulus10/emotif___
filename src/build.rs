@@ -7,7 +7,7 @@ extern crate peg;
  */
 
 fn main() {
-    peg::cargo_build("src/emotifuck_parser/emotifuck_grammar.rustpeg");
+    peg::cargo_build("src/emotifuck_parser/grammar.rustpeg");
 }
 
 

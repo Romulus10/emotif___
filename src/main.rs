@@ -1,3 +1,8 @@
+extern crate colored;
+mod core;
+mod interpreter;
+mod emotifuck_parser;
+
 use std::env;
 use std::io::Read;
 use std::fs::File;
@@ -6,11 +11,6 @@ use std::error::Error;
 use colored::Colorize;
 use interpreter::interpreter::{compile, interpret};
 use emotifuck_parser::parser::Parser;
-
-extern crate colored;
-mod core;
-mod interpreter;
-mod emotifuck_parser;
 
 fn main() {
     let mut args = env::args_os();

@@ -1,0 +1,34 @@
+use super::*;
+
+move_right -> super::Emotifuck
+  = '\u{1F525}'
+
+move_left -> super::Emotifuck
+  = '\u{1F4AF}'
+
+decrement -> super::Emotifuck
+  = '\u{1F4A9}'
+
+increment -> super::Emotifuck
+  = '\u{1F44D}'
+
+output -> super::Emotifuck
+  = '\u{1F49E}'
+
+input -> super::Emotifuck
+  = '\u{1F64F}'
+
+jump_forward -> super::Emotifuck
+  = '\u{1F31A}'
+
+jump_backward -> super::Emotifuck
+  = '\u{1F438}'
+
+anything -> ()
+  = [^move_left^move_right^decrement^increment^output^input^jump_forward^jump_backward]*
+
+#[pub]
+content -> Vec<super::Emotifuck>
+  = (move_left / move_right / decrement / increment / output / input / jump_forward / jump_backward )*
+
+
