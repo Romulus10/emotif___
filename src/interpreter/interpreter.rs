@@ -32,7 +32,7 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
             Emotifuck::JumpForward => {
                 program.push(Instruction { op_code: 5, operand: 0 });
                 stack.push(pc)
-            } 
+            },
             Emotifuck::Output => program.push(Instruction { op_code: 6, operand: 0 }),
             Emotifuck::Input => program.push(Instruction { op_code: 7, operand: 0 }),
             Emotifuck::JumpBackward => {
@@ -40,7 +40,8 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
                     program.push(Instruction { op_code: 8, operand: x });
                     program[x as usize].operand = pc;
                 }
-            }
+            },
+            _ => pc -= 1,
         }
         pc += 1;
     }
