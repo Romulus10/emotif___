@@ -22,7 +22,9 @@ fn main() {
     /// Parser returns a Parser { Vec<Emotifuck> }
     println!("{:?}", args);
     let parser;
+    args.next();
     if let Some(source) = args.next() {
+        println!("{:?}", source);
         parser = match Parser::new(&source.into_string().unwrap()) {
             Ok(x) => x,
             Err(e) => {
