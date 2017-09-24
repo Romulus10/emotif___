@@ -3,6 +3,7 @@ use std::io::Read;
 use std::fs::File;
 
 mod interpreter;
+mod types;
 
 use interpreter::interpreter::{compile, interpret};
 

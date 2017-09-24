@@ -7,7 +7,7 @@ use std::io;
 use std::io::Read;
 use std::io::Write;
 
-use super::types::Emotifuck;
+use types::Emotifuck;
 
 pub struct State {
     pub program: Vec<i32>,
@@ -65,7 +65,7 @@ pub fn interpret(state: State) {
                 .and_then(|result| result.ok())
                 .map(|byte| byte as i32)
                 .unwrap(),
-            7 => io::stdout().write(&[data[ptr] as u8]),
+            7 => { io::stdout().write(&[data[ptr] as u8]); },
             _ => {
                 if data[ptr] == 0 {
                     pc = (program[pc] - 8) as usize;
