@@ -1,15 +1,21 @@
 /**
  *@author Andrew Plaza
  */
- use types::Emotifuck;
+
+use std::io::prelude::*;
+use std::fs::File;
+use std::fmt;
+use std::error::Error;
+
+use emotifuck_parser::err::ParserError;
+use types::Emotifuck;
+
 
 /// Structs and Stuff
 /// includes the generated code from PEG
 
-use emotifuck_parser::*;
-
 #[allow(dead_code)]
-pub mod emotifuck_grammer {
+pub mod emotifuck_grammar {
 	include!(concat!(env!("OUT_DIR"), "/emotifuck_grammar.rs"));
 }
 
@@ -32,9 +38,8 @@ impl Parser {
         let mut types = Vec::new();
         
         config.iter().map(|x| types.push(x));
+        Ok(Parser{types})
 	}
-
-    Ok(Parser {types})
 }
 
 #[cfg(test)]

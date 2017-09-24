@@ -1,5 +1,3 @@
-pub mod types;
-
 /// enumerated types in the Emotifuck language
 pub enum Emotifuck {
    MoveRight, // fire

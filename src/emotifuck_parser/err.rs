@@ -12,21 +12,21 @@ use emotifuck_parser::parser::emotifuck_grammar::ParseError;
 /// Subject to change
 
 #[derive(Debug)]
-pub struct 404EmojiNotFound {
+pub struct EmojiNotFound {
 	pub v: String,
 }
 
-pub type 404EmojiNotFoundError = 404EmojiNotFound;
+pub type EmojiNotFoundError = EmojiNotFound;
 
-impl fmt::Display for 404EmojiNotFoundError {
+impl fmt::Display for EmojiNotFoundError {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-		write!(f, "{}", self.v);
+		write!(f, "{}", self.v)
 	}
 }
 
-impl error::Error for 404EmojiNotFoundError {
+impl error::Error for EmojiNotFoundError {
 	fn description(&self) -> &str {
-		"The Symbol Could Not Be Found"
+		"The Emoji Could Not Be Found"
 	}
 }
 
@@ -34,7 +34,7 @@ impl error::Error for 404EmojiNotFoundError {
 pub enum ParserError {
 	CouldNotOpenSourceCode(io::Error),
 	CouldNotParseFile(ParseError),
-	SymbolNotFound(404EmojiNotFoundError),
+	EmojiNotFound(EmojiNotFoundError),
 }
 
 impl fmt::Display for ParserError {
@@ -44,10 +44,10 @@ impl fmt::Display for ParserError {
 				write!(f, "Could not open Source Code File! {}", err)
 			}
 			ParserError::CouldNotParseFile(ref err) => {
-				write(f, "Was not able to parse Emotifuck {}", err)
+				write!(f, "Was not able to parse Emotifuck {}", err)
 			}
-			ParserError::SymbolNotFound(ref err) => {
-				write(f, "Could Not Find Symbol {}", err)
+			ParserError::EmojiNotFound(ref err) => {
+				write!(f, "Could Not Find Emoji {}", err)
 			}
 		}
 	}
@@ -58,15 +58,15 @@ impl error::Error for ParserError {
 		match *self {
 		    ParserError::CouldNotOpenSourceCode(ref err) => err.description(),
             ParserError::CouldNotParseFile(ref err) => err.description(),
-            ParserError::SymbolNotFound(ref err) => err.description(),
+            ParserError::EmojiNotFound(ref err) => err.description(),
 		}
 	}
 
     fn cause(&self) -> Option<&error::Error> {
         match *self {
-            ParserError::CouldNotOpenSourceCode(ref err) => err.description(),
-            ParserError::CouldNotParseFile(ref err) => err.description(),
-            ParserError::SymbolNotFound(ref err) => err.description(),
+            ParserError::CouldNotOpenSourceCode(ref err) => Some(err),
+            ParserError::CouldNotParseFile(ref err) => Some(err),
+            ParserError::EmojiNotFound(ref err) => Some(err),
         }
     }
 }
@@ -83,9 +83,9 @@ impl From<ParseError> for ParserError {
     }
 }
 
-impl From<SymbolNotFoundError> for ParserError {
-    fn from(err: SymbolNotFoundError) -> ParserError {
-        ParserError::SymbolNotFound(err)
+impl From<EmojiNotFoundError> for ParserError {
+    fn from(err: EmojiNotFoundError) -> ParserError {
+        ParserError::EmojiNotFound(err)
     }
 }
 
