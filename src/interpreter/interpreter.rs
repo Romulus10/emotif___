@@ -61,8 +61,8 @@ pub fn interpret(state: State) {
             0 => {println!("Reached 0"); break 'prog},
             1 => ptr += 1,
             2 => ptr -= 1,
-            3 => data[ptr] += 1,
-            4 => data[ptr] += 1,
+            3 => { data[ptr] += 1 },
+            4 => { data[ptr] += 1 },
             5 => {
                 if data[ptr] == 0 {
                     pc = program[pc].operand as usize;
@@ -81,6 +81,7 @@ pub fn interpret(state: State) {
                 }
             },
             _ => {}
-        }   
+        }
+        pc += 1;
     }
 }
