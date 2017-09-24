@@ -9,6 +9,11 @@ use std::io::Write;
 
 use core::types::Emotifuck;
 
+pub struct Instruction {
+    pub op_code: i32,
+    pub operand: i32
+}
+
 pub struct State {
     pub program: Vec<i32>,
     pub stack: Vec<i32>,
@@ -20,19 +25,21 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
     let mut pc = 0;
     for i in instruction_vector {
         match i {
-            Emotifuck::MoveRight => program.push(1),
-            Emotifuck::MoveLeft => program.push(2),
-            Emotifuck::Increment => program.push(3),
-            Emotifuck::Decrement => program.push(4),
+            Emotifuck::MoveRight => program.push(State { op_code: 1, operand: 0 }),
+            Emotifuck::MoveLeft => program.push(State { op_code: 2, operand: 0 }),
+            Emotifuck::Increment => program.push(State { op_code: 3, operand: 0 }),
+            Emotifuck::Decrement => program.push(State { op_code: 4, operand: 0 }),
             Emotifuck::JumpForward => {
-                program.push(5);
+                program.push(State { op_code: 5, operand: 0 });
                 stack.push(pc)
             } 
             Emotifuck::JumpBackward => {
-                program.push(8 + stack.pop().unwrap());
+                let x = stack.pop();
+                program.push(State { op_code: 8, operand: x });
+                program[x] = pc;
             }
-            Emotifuck::Input => program.push(7),
-            Emotifuck::Output => program.push(6)
+            Emotifuck::Input => program.push(State { op_code: 7, operand: 0 }),
+            Emotifuck::Output => program.push(State { op_code: 6, operand: 0 })
         }
         pc += 1;
     }
@@ -49,7 +56,7 @@ pub fn interpret(state: State) {
     let program = state.program.as_slice();
     let mut data = [0; 1024];
     'prog: loop {
-        match program[pc] {
+        match program[pc].op_code {
             0 => {println!("Reached 0"); break 'prog},
             1 => ptr += 1,
             2 => ptr -= 1,
@@ -57,7 +64,7 @@ pub fn interpret(state: State) {
             4 => data[ptr] += 1,
             5 => {
                 if data[ptr] == 0 {
-                    pc = (program[pc] - 8) as usize;
+                    pc = program[pc].operand;
                 }
             },
             6 => data[ptr] = io::stdin()
@@ -67,9 +74,9 @@ pub fn interpret(state: State) {
                 .map(|byte| byte as i32)
                 .unwrap(),
             7 => { io::stdout().write(&[data[ptr] as u8]); },
-            _ => {
+            8 => {
                 if data[ptr] == 0 {
-                    pc = (program[pc] - 8) as usize;
+                    pc = program[pc].operand;
                 }
             }
         }   
