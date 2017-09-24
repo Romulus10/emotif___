@@ -2,6 +2,7 @@ use std::mem;
 
 pub struct Stack {
     head: Link,
+    length: i32
 }
 
 enum Link {
@@ -24,7 +25,7 @@ impl Stack {
             elem: elem,
             next: mem::replace(&mut self.head, Link::Empty),
         });
-
+        self.length += 1
         self.head = Link::More(new_node);
     }
 
@@ -34,9 +35,14 @@ impl Stack {
             Link::More(node) => {
                 let node = *node;
                 self.head = node.next;
+                self.length -= 1
                 Some(node.elem)
             }
         }
+    }
+
+    pub fn length(&mut self) -> i32 {
+        self.length
     }
 }
 
