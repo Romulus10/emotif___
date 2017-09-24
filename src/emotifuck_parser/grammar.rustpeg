@@ -1,31 +1,32 @@
 use super::*;
 
+/// everything except Unicode Emojis (Rustpeg doesn't include that in the . rule)
+anything -> ()
+  = [ \n\t.]*
+
 move_right -> super::Emotifuck
-  = '\u{1F525}' { super::Emotifuck::MoveRight }
+  = '\u{1F525}' anything { super::Emotifuck::MoveRight }
 
 move_left -> super::Emotifuck
-  = '\u{1F4AF}' { super::Emotifuck::MoveLeft }
+  = '\u{1F4AF}' anything { super::Emotifuck::MoveLeft }
 
 decrement -> super::Emotifuck
-  = '\u{1F4A9}' { super::Emotifuck::Decrement }
+  = '\u{1F4A9}' anything { super::Emotifuck::Decrement }
 
 increment -> super::Emotifuck
-  = '\u{1F44D}' { super::Emotifuck::Increment }
+  = '\u{1F44D}' anything { super::Emotifuck::Increment }
 
 output -> super::Emotifuck
-  = '\u{1F49E}' { super::Emotifuck::Output }
+  = '\u{1F49E}' anything { super::Emotifuck::Output }
 
 input -> super::Emotifuck
-  = '\u{1F64F}' { super::Emotifuck::Input }
+  = '\u{1F64F}' anything { super::Emotifuck::Input }
 
 jump_forward -> super::Emotifuck
-  = '\u{1F31A}' { super::Emotifuck::JumpForward }
+  = '\u{1F31A}' anything { super::Emotifuck::JumpForward }
 
 jump_backward -> super::Emotifuck
-  = '\u{1F438}' { super::Emotifuck::JumpBackward }
-
-anything -> ()
-  = [^move_left^move_right^decrement^increment^output^input^jump_forward^jump_backward]*
+  = '\u{1F438}' anything { super::Emotifuck::JumpBackward }
 
 #[pub]
 content -> Vec<super::Emotifuck>

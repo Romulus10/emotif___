@@ -37,8 +37,20 @@ impl Parser {
 	}
 }
 
+impl fmt::Display for Parser {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:?}", self.types)
+    }
+}
+
+/// Tests for the parser
 #[cfg(test)]
 #[test]
-fn test_grammar() {
+fn test_parser() {
+    let parser = match Parser::new("src/emotifuck_parser/emotifuck.test") {
+        Ok(s) => s,
+        Err(e) => panic!("{}", e),
+    };
 
+    println!("Parser: {}", parser.to_string());
 }
