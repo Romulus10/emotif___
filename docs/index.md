@@ -19,6 +19,7 @@ This is our own special take on brainf**k - instead of the traditional commands,
 |        :frog:        | Jump Backward |
 
 
+
 | UTF-8 Code Points |                 Unicode                  | Meaning  |
 | :---------------: | :--------------------------------------: | :------: |
 |    F0 9F 94 A5    | [U+1F525](https://apps.timwhitlock.info/unicode/inspect/hex/1F525) |  Move Right   |
