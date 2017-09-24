@@ -48,8 +48,9 @@ pub fn interpret(state: State) {
     let mut ptr: usize = 0;
     let program = state.program.as_slice();
     let mut data = [0; 1024];
-    while program[pc] != 0 {
+    'prog: loop {
         match program[pc] {
+            0 => {break 'prog; println!("Reached 0")},
             1 => ptr += 1,
             2 => ptr -= 1,
             3 => data[ptr] += 1,
@@ -71,6 +72,6 @@ pub fn interpret(state: State) {
                     pc = (program[pc] - 8) as usize;
                 }
             }
-        }
+        }   
     }
 }
