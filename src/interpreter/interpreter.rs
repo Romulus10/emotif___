@@ -47,7 +47,7 @@ pub fn interpret(state: State) {
     let mut pc: usize = 0;
     let mut ptr: usize = 0;
     let program = state.program.as_slice();
-    let data = [0; 1024];
+    let mut data = [0; 1024];
     while program[pc] != 0 {
         match program[pc] {
             1 => ptr += 1,
