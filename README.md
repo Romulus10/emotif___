@@ -8,7 +8,7 @@ Brainf**k is an esoteric programming language created in 1993 by Urban Muller. I
 This is our own special take on brainf**k - instead of the traditional commands, it uses UTF-8 emojis. The commands are as follows:
 
 | Emoji                 | Meaning        |
-------------------------------------------
+|----------------------------------------|
 | :fire:                | Move Right     |
 | :100:                 | Move Left      |
 | :poop:                | Decrement      |
@@ -17,4 +17,3 @@ This is our own special take on brainf**k - instead of the traditional commands,
 | :pray:                | Input          |
 | :new_moon_with_face:  | Jump Forward   |
 | :frog:                | Jump Backward  |
-------------------------------------------
