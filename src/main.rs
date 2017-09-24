@@ -25,7 +25,5 @@ fn main() {
                 process::exit(1);
             }
         };
-    } else {
-        println!("{}", "Error! Did not specify a source".red().bold());
     }
 }
