@@ -11,3 +11,5 @@ pub enum Emotifuck {
    JumpForward, //New Moon with face
    JumpBackward, //frog
 }
+
+/// Vec<Emotifuck>
