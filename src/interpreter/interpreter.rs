@@ -25,21 +25,22 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
     let mut pc = 0;
     for i in instruction_vector {
         match i {
-            Emotifuck::MoveRight => program.push(State { op_code: 1, operand: 0 }),
-            Emotifuck::MoveLeft => program.push(State { op_code: 2, operand: 0 }),
-            Emotifuck::Increment => program.push(State { op_code: 3, operand: 0 }),
-            Emotifuck::Decrement => program.push(State { op_code: 4, operand: 0 }),
+            Emotifuck::MoveRight => program.push(Instruction { op_code: 1, operand: 0 }),
+            Emotifuck::MoveLeft => program.push(Instruction { op_code: 2, operand: 0 }),
+            Emotifuck::Increment => program.push(Instruction { op_code: 3, operand: 0 }),
+            Emotifuck::Decrement => program.push(Instruction { op_code: 4, operand: 0 }),
             Emotifuck::JumpForward => {
-                program.push(State { op_code: 5, operand: 0 });
+                program.push(Instruction { op_code: 5, operand: 0 });
                 stack.push(pc)
             } 
             Emotifuck::JumpBackward => {
-                let x = stack.pop();
-                program.push(State { op_code: 8, operand: x });
-                program[x] = pc;
+                if let Some(x) = stack.pop() {
+                    program.push(Instruction { op_code: 8, operand: x });
+                    program[x as usize] = pc;
+                }
             }
-            Emotifuck::Input => program.push(State { op_code: 7, operand: 0 }),
-            Emotifuck::Output => program.push(State { op_code: 6, operand: 0 })
+            Emotifuck::Input => program.push(Instruction { op_code: 7, operand: 0 }),
+            Emotifuck::Output => program.push(Instruction { op_code: 6, operand: 0 })
         }
         pc += 1;
     }
