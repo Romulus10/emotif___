@@ -20,7 +20,7 @@ pub mod emotifuck_grammar {
 
 #[derive(Debug)]
 pub struct Parser {
-    types: Vec<Emotifuck>,
+    pub types: Vec<Emotifuck>,
 }
 
 /// Runs the grammar on the source file
