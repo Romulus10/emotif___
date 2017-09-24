@@ -7,7 +7,7 @@ The full documentation is located on [gitbooks](https://romulus10.gitbooks.io/em
 Brainf\*\*k is an esoteric, Turing-complete programming language created in 1993 by Urban Muller. It consists of 8 commands and an instruction pointer. Usually, the commands are used to move along a single array of individual bytes and increment, decrement, input, and output the value at the current location in memory.
 
 ## Emotif**k
-This is our own special take on brainf\*\*k - instead of the traditional commands, it uses UTF-8 emojis and 1024 32-bit integers of memory space. The commands are as follows:
+This is our own special take on brainf\*\*k - instead of the traditional commands, it uses UTF-8 emojis and 1024 32-bit integers of memory space. Being written in Rust, it is also Memory Safe. The commands are as follows:
 
 |        Emoji         | UTF-8 Code Points |                 Unicode                  | Meaning  |
 | :------------------: | :---------------: | :--------------------------------------: | :------: |
