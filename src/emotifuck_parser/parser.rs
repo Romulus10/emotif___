@@ -13,7 +13,6 @@ use emotifuck_parser::*;
 
 /// Structs and Stuff
 /// includes the generated code from PEG
-
 #[allow(dead_code)]
 pub mod emotifuck_grammar {
 	include!(concat!(env!("OUT_DIR"), "/emotifuck_grammar.rs"));
@@ -33,11 +32,11 @@ impl Parser {
 
         let mut source = String::new();
         f.read_to_string(&mut source)?;
-        // let source = emotifuck_grammar::content(source.as_ref())?;
+        let source = emotifuck_grammar::content(source.as_ref())?;
         
         let mut types = Vec::new();
         
-        //source.iter().map(|x| types.push(x));
+        source.iter().map(|x| types.push(x));
         Ok(Parser{types})
 	}
 }
