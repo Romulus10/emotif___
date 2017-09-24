@@ -15,7 +15,7 @@ pub struct Instruction {
 }
 
 pub struct State {
-    pub program: Vec<i32>,
+    pub program: Vec<Instruction>,
     pub stack: Vec<i32>,
 }
 
@@ -36,7 +36,7 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
             Emotifuck::JumpBackward => {
                 if let Some(x) = stack.pop() {
                     program.push(Instruction { op_code: 8, operand: x });
-                    program[x as usize] = pc;
+                    program[x as usize].operand = pc;
                 }
             }
             Emotifuck::Input => program.push(Instruction { op_code: 7, operand: 0 }),
@@ -44,7 +44,7 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
         }
         pc += 1;
     }
-    program.push(0);
+    program.push(Instruction { op_code: 0, operand: 0 });
     State { 
         program: program,
         stack: stack,
@@ -65,7 +65,7 @@ pub fn interpret(state: State) {
             4 => data[ptr] += 1,
             5 => {
                 if data[ptr] == 0 {
-                    pc = program[pc].operand;
+                    pc = program[pc].operand as usize;
                 }
             },
             6 => data[ptr] = io::stdin()
@@ -77,9 +77,10 @@ pub fn interpret(state: State) {
             7 => { io::stdout().write(&[data[ptr] as u8]); },
             8 => {
                 if data[ptr] == 0 {
-                    pc = program[pc].operand;
+                    pc = program[pc].operand as usize;
                 }
-            }
+            },
+            _ => {}
         }   
     }
 }
