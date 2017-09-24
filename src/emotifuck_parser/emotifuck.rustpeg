@@ -1,0 +1,30 @@
+use super::*;
+
+end -> ()
+  = [ \n\\\t\r]*
+
+move_left -> 
+  = 
+
+move_right ->
+  =
+
+decrement ->
+  =
+
+increment ->
+  =
+
+output ->
+  =
+
+input ->
+  =
+
+jump_forward ->
+  =
+
+jump_backward ->
+  =
+
+

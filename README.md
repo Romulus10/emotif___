@@ -19,8 +19,8 @@ This is our own special take on brainf**k - instead of the traditional commands,
 |        :frog:        | Jump Backward |
 
 
-| UTF-8 Code Points |                 Unicode                  |
-| :---------------: | :--------------------------------------: |
+| UTF-8 Code Points |                 Unicode                  | Meaning  |
+| :---------------: | :--------------------------------------: | :------: |
 |    F0 9F 94 A5    | [U+1F525](https://apps.timwhitlock.info/unicode/inspect/hex/1F525) |  Move Right   |
 |    F0 9F 92 AF    | [U+1F4AF](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f4af) |   Move Left   |
 |    F0 9F 92 A9    | [U+1F4A9](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f4a9) |   Decrement   |
