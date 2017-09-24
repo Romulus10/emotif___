@@ -1,10 +1,10 @@
 /**
  *@author Andrew Plaza
  */
+ use types::Emotifuck;
 
 /// Structs and Stuff
 /// includes the generated code from PEG
-/// 
 
 use emotifuck_parser::*;
 
@@ -15,5 +15,18 @@ pub mod emotifuck_grammer {
 
 #[derive(Debug)]
 pub struct Parser {
-	
+	emotifuckTypes: Vec<Emotifuck>,
+}
+
+impl Parser {
+	pub fn new(source_file: &str) -> Result<Parser, ParseError> {
+		
+	}
+}
+
+#[cfg(test)]
+#[test]
+fn test_parser() {
+    
+
 }
