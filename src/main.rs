@@ -1,3 +1,8 @@
+/**
+ *@author Andrew Plaza <andrew.plaza@protonmail.com>
+ *@author Sean Batzel <romulus108@protonmail.com>
+ */
+
 extern crate colored;
 mod core;
 mod interpreter;

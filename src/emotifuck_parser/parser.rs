@@ -1,5 +1,6 @@
 /**
  *@author Andrew Plaza
+ * Parser Struct and tests for the grammar/parser
  */
 
 use std::io::prelude::*;
@@ -18,14 +19,15 @@ pub mod emotifuck_grammar {
 	include!(concat!(env!("OUT_DIR"), "/grammar.rs"));
 }
 
+/// The Parser Struct, 
 #[derive(Debug)]
 pub struct Parser {
+    /// Where the translated emojis go once they are identified by the PEG Grammar
     pub types: Vec<Emotifuck>,
 }
 
-/// Runs the grammar on the source file
-/// does any other needed transformations 
-/// until it's passed to the interpreter
+/// Runs the grammar on the source file. Does any other needed transformations 
+/// until it's passed to the interpreter. 
 impl Parser {
 	pub fn new(source_file: &str) -> Result<Parser, ParserError> {
 	    let mut f = File::open(source_file)?;
