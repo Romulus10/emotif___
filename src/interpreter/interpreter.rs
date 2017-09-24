@@ -50,7 +50,7 @@ pub fn interpret(state: State) {
     let mut data = [0; 1024];
     'prog: loop {
         match program[pc] {
-            0 => {break 'prog; println!("Reached 0")},
+            0 => {println!("Reached 0"); break 'prog},
             1 => ptr += 1,
             2 => ptr -= 1,
             3 => data[ptr] += 1,
