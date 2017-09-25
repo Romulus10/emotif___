@@ -9,7 +9,7 @@ function compile(program) {
     var program_vec = program.split('');
     var instructions = new Array();
     var stack = new Array();
-    for x in program_vec {
+    for (x in program_vec) {
         switch (x) {
             case '🔥':
                 instructions.push({1,0});
@@ -51,7 +51,7 @@ function interpret(state) {
     var ptr = 0;
     var data = new Array(1024);
     var output = "";
-    for x in state[0] {
+    for (x in state[0]) {
         switch (x) {
             case 0:
                 break;
