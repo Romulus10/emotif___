@@ -30,3 +30,10 @@ Programs are represented by strings of these emojis in text files. In brainf**k,
 The emotif\*\*k equivalet is:
 
 `👍👍👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍👍👍👍🔥👍👍👍👍👍👍👍👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍👍💞🔥👍💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥👍👍💞💯💯👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍💞🔥💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥👍💞🔥💞`
+
+## Web Interface
+<form>
+<input>
+<input>
+<input type='submit' value='submit'>
+</form>
