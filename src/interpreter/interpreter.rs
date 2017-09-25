@@ -18,6 +18,7 @@ pub struct State {
     pub program: Vec<Instruction>,
     pub stack: Vec<i32>,
 }
+
 const MOVR: i32 = 1;
 const MOVL: i32 = 2;
 const INC: i32 = 3;
@@ -86,16 +87,19 @@ pub fn interpret(state: State) {
                 .unwrap(),
             JMP_F => {
                 if data[ptr] != 0 {
+                    // println!("Setting pc to {}", program[pc].operand);
                     pc = program[pc].operand as usize;
                 }
             },
             JMP_BK => {
                 if data[ptr] == 0 {
+                    // println!("Setting pc to {}", program[pc].operand);
                     pc = program[pc].operand as usize;
                 }
             },
             _ => {}
         }
+        // println!("Current pc: {}", pc);
         pc += 1;
     }
 }
@@ -109,5 +113,14 @@ mod test {
             ct += 1;
         }
         assert_eq!(ct as u8, 'A' as u8);
+    }
+
+    #[test]
+    fn test_vector_stack() {
+        let mut v = Vec::new();
+        v.push(1);
+        v.push(2);
+        assert_eq!(v, vec![1,2]);
+        assert_eq!(v.pop(), Some(2));
     }
 }
