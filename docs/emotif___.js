@@ -44,7 +44,7 @@ function compile(program) {
         }
         pc += 1;
     }
-    program.push({0,0});
+    program.push([0,0]);
 }
 
 function interpret(state) {
