@@ -16,6 +16,7 @@ function compile(program) {
     var instructions = new Array();
     var stack = new Array();
     for (x in program_vec) {
+        console.log(x);
         switch (x) {
             case '🔥':
                 instructions.push([1,0]);
