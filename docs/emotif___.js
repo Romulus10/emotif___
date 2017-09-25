@@ -1,4 +1,5 @@
 function main() {
+    console.log('Running program.');
     var in_program = document.getElementById("in_program").value;
     var output = interpret(compile(program));
     document.getElementById("output").value = output;
