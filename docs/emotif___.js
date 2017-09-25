@@ -16,31 +16,31 @@ function compile(program) {
     var instructions = new Array();
     var stack = new Array();
     for (x in program_vec) {
-        console.log(program_vec[x]);
-        switch (program_vec[x]) {
-            case '🔥':
+        console.log(program_vec[x].charCodeAt(0));
+        switch (program_vec[x].charCodeAt(0)) {
+            case '🔥'.charCodeAt(0):
                 instructions.push([1,0]);
                 break;
-            case '💯':
+            case '💯'.charCodeAt(0):
                 instructions.push([2,0]);
                 break;
-            case '💩':
+            case '💩'.charCodeAt(0):
                 instructions.push([3,0]);
                 break;
-            case '👍':
+            case '👍'.charCodeAt(0):
                 instructions.push([4,0]);
                 break;
-            case '💞':
+            case '💞'.charCodeAt(0):
                 instructions.push([5,0]);
                 break;
-            case '🙏':
+            case '🙏'.charCodeAt(0):
                 instructions.push([6,0]);
                 break;
-            case '🌚':
+            case '🌚'.charCodeAt(0):
                 instructions.push([7,0]);
                 stack.push(pc);
                 break;
-            case '🐸':
+            case '🐸'.charCodeAt(0):
                 var jmp_pc = stack.pop();
                 instructions.push([8,jmp_pc]);
                 program[jmp_pc][1] = pc;
