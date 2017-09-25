@@ -75,11 +75,11 @@ function interpret(state) {
                 console.log("Not implemented.");
                 break;
             case 7: //jmp_f
-                if data[ptr] == 0 {
+                if (data[ptr]) == 0 {
                     pc = program[pc][1];
                 }
             case 8: //jmp_bk
-                if data[ptr] != 0 {
+                if (data[ptr] != 0) {
                     pc = program[pc][1];
                 }
         }
