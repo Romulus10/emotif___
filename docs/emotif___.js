@@ -3,6 +3,7 @@ function main() {
     var in_program = document.getElementById("in_program").value;
     var output = interpret(compile(in_program));
     document.getElementById("output").value = output;
+    console.log('Program is done.');
 }
 
 function compile(program) {
