@@ -44,7 +44,8 @@ function compile(program) {
         }
         pc += 1;
     }
-    program.push([0,0]);
+    instructions.push([0,0]);
+    return [instructions, stack];
 }
 
 function interpret(state) {
@@ -85,5 +86,5 @@ function interpret(state) {
         }
         pc++;
     }
-
+    return output;
 }
