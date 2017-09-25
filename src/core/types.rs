@@ -9,6 +9,7 @@ pub enum Emotifuck {
    Input,     // pray
    JumpForward, //New Moon with face
    JumpBackward, //frog
+   Nothing,
 }
 
 // Vec<Emotifuck>

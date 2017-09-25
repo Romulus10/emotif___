@@ -34,6 +34,7 @@ impl Parser {
         let mut source = String::new();
         f.read_to_string(&mut source)?;
         let source = emotifuck_grammar::content(source.as_ref())?;
+        println!("If this doesn't print, then parseerror");
         Ok(Parser{types: source})
 	}
 }
