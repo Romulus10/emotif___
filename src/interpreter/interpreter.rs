@@ -99,3 +99,15 @@ pub fn interpret(state: State) {
         pc += 1;
     }
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test_ascii_out() {
+        let mut ct = 0;
+        for x in 0..65 {
+            ct += 1;
+        }
+        assert_eq!(ct as u8, 'A' as u8);
+    }
+}
