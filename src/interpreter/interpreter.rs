@@ -18,8 +18,8 @@ pub struct State {
     pub program: Vec<Instruction>,
     pub stack: Vec<i32>,
 }
-const MOVE_RIGHT: i32 = 1;
-const MOVE_LEFT: i32 = 2;
+const MOVR: i32 = 1;
+const MOVL: i32 = 2;
 const INC: i32 = 3;
 const DEC: i32 = 4;
 const JMP_F: i32 = 5;
@@ -33,8 +33,8 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
     let mut pc = 0;
     for i in instruction_vector {
         match i {
-            Emotifuck::MoveRight => program.push(Instruction { op_code: MOVE_RIGHT, operand: 0 }),
-            Emotifuck::MoveLeft => program.push(Instruction { op_code: MOVE_LEFT, operand: 0 }),
+            Emotifuck::MoveRight => program.push(Instruction { op_code: MOVR, operand: 0 }),
+            Emotifuck::MoveLeft => program.push(Instruction { op_code: MOVL, operand: 0 }),
             Emotifuck::Increment => program.push(Instruction { op_code: INC, operand: 0 }),
             Emotifuck::Decrement => program.push(Instruction { op_code: DEC, operand: 0 }),
             Emotifuck::JumpForward => {
@@ -68,24 +68,24 @@ pub fn interpret(state: State) {
     'prog: loop {
         if ptr >= 1024 { break 'prog; }
         match program[pc].op_code {
-            0 => {println!("Reached 0"); break 'prog},
-            1 => ptr += 1, // MOVE RIGHT
-            2 => ptr -= 1, //MOVE LEFT
-            3 => { data[ptr] += 1 }, //INCREMENT
-            4 => { data[ptr] -= 1 }, //DECREMENT
-            5 => { // Jump Forward
-                if data[ptr] != 0 {
-                    pc = program[pc].operand as usize;
-                }
-            },
-            7 => data[ptr] = io::stdin()
+            0 => {break 'prog},
+            MOVR => ptr += 1,
+            MOVL => ptr -= 1,
+            DEC => { data[ptr] -= 1 },
+            INC => { data[ptr] += 1 },
+            OUT => { io::stdout().write(&[data[ptr] as u8]); },
+            IN => data[ptr] = io::stdin()
                 .bytes()
                 .next()
                 .and_then(|result| result.ok())
                 .map(|byte| byte as i32)
                 .unwrap(),
-            6 => { io::stdout().write(&[data[ptr] as u8]); },
-            8 => { // Jump Backward
+            JMP_F => { // Jump Forward
+                if data[ptr] != 0 {
+                    pc = program[pc].operand as usize;
+                }
+            },
+            JMP_BK => { // Jump Backward
                 if data[ptr] == 0 {
                     pc = program[pc].operand as usize;
                 }
