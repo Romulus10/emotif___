@@ -19,6 +19,7 @@ pub struct State {
     pub program: Vec<Instruction>,
     pub stack: Vec<i32>,
 }
+
 const MOVR: i32 = 1;
 const MOVL: i32 = 2;
 const INC: i32 = 3;
@@ -68,7 +69,6 @@ pub fn interpret(state: State) {
     let mut pc: usize = 0;
     let mut ptr: usize = 0;
     let program = state.program.as_slice();
-    //println!("PROGRAM: {:?}", program);
     let mut data = [0; DATA_SIZE];
     'prog: loop {
         if pc >= DATA_SIZE { break 'prog }
@@ -79,8 +79,6 @@ pub fn interpret(state: State) {
             DEC => { data[ptr] -= 1 },
             INC => { data[ptr] += 1 },
             OUT => { 
-                //println!("DATA[PTR] {}", data[ptr]);
-                //println!("======================================");
                 io::stdout().write(&[data[ptr] as u8]); 
             },
             IN => data[ptr] = io::stdin()
@@ -114,5 +112,14 @@ mod test {
             ct += 1;
         }
         assert_eq!(ct as u8, 'A' as u8);
+    }
+
+    #[test]
+    fn test_vector_stack() {
+        let mut v = Vec::new();
+        v.push(1);
+        v.push(2);
+        assert_eq!(v, vec![1,2]);
+        assert_eq!(v.pop(), Some(2));
     }
 }

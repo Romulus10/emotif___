@@ -18,11 +18,11 @@ use emotifuck_parser::parser::Parser;
 fn main() {
     let mut args = env::args_os();
     /// Parser returns a Parser { Vec<Emotifuck> }
-    println!("{:?}", args);
+    // println!("{:?}", args);
     let parser;
     args.next();
     if let Some(source) = args.next() {
-        println!("{:?}", source);
+        // println!("{:?}", source);
         parser = match Parser::new(&source.into_string().unwrap()) {
             Ok(x) => x,
             Err(e) => {
