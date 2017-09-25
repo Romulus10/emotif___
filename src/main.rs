@@ -26,7 +26,7 @@ fn main() {
         parser = match Parser::new(&source.into_string().unwrap()) {
             Ok(x) => x,
             Err(e) => {
-                println!("Error!: {}", e.description().red().bold());
+                println!("Error!: {}, {}", e.description().red().bold(), e.to_string());
                 process::exit(1);
             }
         };
