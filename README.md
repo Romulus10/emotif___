@@ -1,13 +1,13 @@
 # emotif___
-An emojified dialect of brainf**k written in Rust.
+An emojified dialect of brainf\*\*k written in Rust.
 
 Created By [Romulus10](https://github.com/Romulus10) and [InsidiousMind](https://github.com/InsidiousMind)
 
 ## Brainf**k
-Brainf**k is an esoteric, Turing-complete programming language created in 1993 by Urban Müller. It consists of 8 commands and an instruction pointer. Usually, the commands are used to move along a single array of individual bytes and increment, decrement, input, and output.
+Brainf\*\*k is an esoteric, Turing-complete programming language created in 1993 by Urban Müller. It consists of 8 commands and an instruction pointer. Usually, the commands are used to move along a single array of individual bytes and increment, decrement, input, and output.
 
 ## Emotif**k
-This is our own special take on brainf**k - instead of the traditional commands, it uses UTF-8 emojis. The commands are as follows:
+This is our own special take on brainf\*\*k - instead of the traditional commands, it uses UTF-8 emojis. The commands are as follows:
 
 | Emoji | UTF-8 Code Points |                 Unicode                  |    Meaning    | Brainf**k Equivalent |
 | :---: | :---------------: | :--------------------------------------: | :-----------: | :------------------: |
