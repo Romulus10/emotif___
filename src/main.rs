@@ -30,6 +30,7 @@ fn main() {
                 process::exit(1);
             }
         };
+        //println!("{:?}", parser.types);
         let target = compile(parser.types);
         interpret(target);
     }

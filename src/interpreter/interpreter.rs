@@ -75,8 +75,8 @@ pub fn interpret(state: State) {
             DEC => { data[ptr] -= 1 },
             INC => { data[ptr] += 1 },
             OUT => { 
-                //println!("DATA[PTR] {}", data[ptr]);
-                io::stdout().write(&[data[ptr] as u8]); 
+                println!("DATA[PTR] {}", data[ptr]);
+                //io::stdout().write(&[data[ptr] as u8]); 
             },
             IN => data[ptr] = io::stdin()
                 .bytes()
