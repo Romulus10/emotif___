@@ -35,8 +35,8 @@ The emotif\*\*k equivalet is:
 <form>
 <textarea id="emotif_input" rows="4" cols="50">
 👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍🌚🔥👍👍🔥👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍🔥👍🔥💩🔥🔥👍🌚💯🐸💯💩🐸🔥🔥💞🔥💩💩💩💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥🔥💞💯💩💞💯💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥🔥👍💞🔥👍👍💞
-</textarea>
+</textarea><br/>
 <textarea id="emotif_output" rows="4" cols="50">
-</textarea>
+</textarea><br/>
 <input type='submit' value='submit'>
 </form>
