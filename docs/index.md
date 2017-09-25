@@ -14,7 +14,7 @@ This is our own special take on brainf**k - instead of the traditional commands,
 |  🔥   |    F0 9F 94 A5    | [U+1F525](https://apps.timwhitlock.info/unicode/inspect/hex/1F525) |  Move Right   |  >   |
 |  💯   |    F0 9F 92 AF    | [U+1F4AF](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f4af) |   Move Left   |  <   |
 |  💩   |    F0 9F 92 A9    | [U+1F4A9](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f4a9) |   Decrement   |  -   |
-|  👍   |    F0 9F 91 8D    | [U+1F44D](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f44d) |   Increment   |  +   |
+|  😂   |    F0 9F 91 8D    | [U+1F44D](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f44d) |   Increment   |  +   |
 |  💞   |    F0 9F 92 9E    | [U+1F49E](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f49e) |    Output     |  .   |
 |  🙏   |    F0 9F 99 8F    | [U+1F64F](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f64f) |     Input     |  ,   |
 |  🌚   |    F0 9F 8C 9A    | [U+1F31A](https://apps.timwhitlock.info/unicode/inspect/hex/1F31A) | Jump Forward  |  [   |
