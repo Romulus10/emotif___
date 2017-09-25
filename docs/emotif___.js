@@ -2,6 +2,7 @@ function main() {
     console.log('Running program.');
     var in_program = document.getElementById("in_program").value;
     var output = interpret(compile(in_program));
+    console.log("Output should be " + output);
     document.getElementById("output").value = output;
     console.log('Program is done.');
 }
