@@ -13,30 +13,30 @@ function compile(program) {
     for (x in program_vec) {
         switch (x) {
             case '🔥':
-                instructions.push({1,0});
+                instructions.push([1,0]);
                 break;
             case '💯':
-                instructions.push({2,0});
+                instructions.push([2,0]);
                 break;
             case '💩':
-                instructions.push({3,0});
+                instructions.push([3,0]);
                 break;
             case '👍':
-                instructions.push({4,0});
+                instructions.push([4,0]);
                 break;
             case '💞':
-                instructions.push({5,0});
+                instructions.push([5,0]);
                 break;
             case '🙏':
-                instructions.push({6,0});
+                instructions.push([6,0]);
                 break;
             case '🌚':
-                instructions.push({7,0});
+                instructions.push([7,0]);
                 stack.push(pc);
                 break;
             case '🐸':
                 var jmp_pc = stack.pop();
-                instructions.push({8,jmp_pc});
+                instructions.push([8,jmp_pc]);
                 program[jmp_pc][1] = pc;
             default:
                 pc -= 1;
