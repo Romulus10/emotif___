@@ -1,9 +1,12 @@
 function main() {
     console.log('Running program.');
-    var in_program = document.getElementById("in_program").value;
-    var output = interpret(compile(in_program));
-    console.log("Output should be " + output);
-    document.getElementById("output").value = output;
+    var in_program = document.getElementById('in_program').value;
+    console.log('Program text: ' + in_program);
+    var intermediate = compile(in_program);
+    console.log('Intermediate: ' + intermediate);
+    var output = interpret(intermediate);
+    console.log('Output should be: ' + output);
+    document.getElementById('output').value = output;
     console.log('Program is done.');
 }
 
