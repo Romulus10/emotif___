@@ -6,6 +6,7 @@
 anything -> super::Emotifuck
   = . { super::Emotifuck::Nothing }
 
+
 move_right -> super::Emotifuck
   = '\u{1F525}' { super::Emotifuck::MoveRight }
 
@@ -15,8 +16,9 @@ move_left -> super::Emotifuck
 decrement -> super::Emotifuck
   = '\u{1F4A9}' { super::Emotifuck::Decrement }
 
+// 😂    U+1F602
 increment -> super::Emotifuck
-  = '\u{1F44D}' { super::Emotifuck::Increment }
+  = '\u{1F602}' { super::Emotifuck::Increment }
 
 output -> super::Emotifuck
   = '\u{1F49E}' { super::Emotifuck::Output }
