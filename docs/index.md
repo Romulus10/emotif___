@@ -30,14 +30,3 @@ Programs are represented by strings of these emojis in text files. In brainf**k,
 The emotif\*\*k equivalet is:
 
 `👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍🌚🔥👍👍🔥👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍🔥👍🔥💩🔥🔥👍🌚💯🐸💯💩🐸🔥🔥💞🔥💩💩💩💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥🔥💞💯💩💞💯💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥🔥👍💞🔥👍👍💞`
-
-## Web Interface
-
-For those of you who don't want to download the full binary, you can test out the language below. The program that's already entered in to the text area is just a Hello World.
-
-<textarea id="emotif_input" rows="4" cols="50">
-👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍🌚🔥👍👍🔥👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍🔥👍🔥💩🔥🔥👍🌚💯🐸💯💩🐸🔥🔥💞🔥💩💩💩💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥🔥💞💯💩💞💯💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥🔥👍💞🔥👍👍💞
-</textarea><br/>
-<textarea id="emotif_output" rows="4" cols="50">
-</textarea><br/>
-<button>Go</button>
