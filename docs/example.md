@@ -7,6 +7,7 @@ The input function doesn't work here.
 </textarea>
 <br/>
 <textarea id='output' rows=5' cols='50'>
+
 </textarea>
 <br/>
 <button onclick='main();'>
