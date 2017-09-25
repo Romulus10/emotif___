@@ -1,8 +1,6 @@
 # emotif___
 An emojified dialect of brainf**k written in Rust.
 
-The full documentation is located on [gitbooks](https://romulus10.gitbooks.io/emotif___/).
-
 Created By [Romulus10](https://github.com/Romulus10) and [InsidiousMind](https://github.com/InsidiousMind)
 
 ## Brainf**k
