@@ -16,8 +16,8 @@ function compile(program) {
     var instructions = new Array();
     var stack = new Array();
     for (x in program_vec) {
-        console.log(x);
-        switch (x) {
+        console.log(program_vec[x]);
+        switch (program_vec[x]) {
             case '🔥':
                 instructions.push([1,0]);
                 break;
