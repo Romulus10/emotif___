@@ -122,4 +122,11 @@ mod test {
         assert_eq!(v, vec![1,2]);
         assert_eq!(v.pop(), Some(2));
     }
+
+    #[test]
+    fn test_array_add() {
+        let mut x = [0; 1];
+        x[0] += 1;
+        assert_eq!(x[0], 1);
+    }
 }
