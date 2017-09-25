@@ -9,6 +9,7 @@ use std::io::Write;
 
 use core::types::Emotifuck;
 
+#[derive(Debug)]
 pub struct Instruction {
     pub op_code: i32,
     pub operand: i32
@@ -45,9 +46,11 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
             Emotifuck::Output => program.push(Instruction { op_code: OUT, operand: 0 }),
             Emotifuck::Input => program.push(Instruction { op_code: IN, operand: 0 }),
             Emotifuck::JumpBackward => {
-                if let Some(x) = stack.pop() {
-                    program.push(Instruction { op_code: JMP_BK, operand: x });
-                    program[x as usize].operand = pc;
+                if let Some(jmp_pc) = stack.pop() {
+                    program.push(Instruction { op_code: JMP_BK, operand: jmp_pc });
+                    program[jmp_pc as usize].operand = pc;
+                } else {
+                    panic!("SOMETHING WENT WRONG!");
                 }
             },
             _ => pc -= 1,
@@ -65,6 +68,7 @@ pub fn interpret(state: State) {
     let mut pc: usize = 0;
     let mut ptr: usize = 0;
     let program = state.program.as_slice();
+    //println!("PROGRAM: {:?}", program);
     let mut data = [0; DATA_SIZE];
     'prog: loop {
         if pc >= DATA_SIZE { break 'prog }
@@ -75,8 +79,9 @@ pub fn interpret(state: State) {
             DEC => { data[ptr] -= 1 },
             INC => { data[ptr] += 1 },
             OUT => { 
-                println!("DATA[PTR] {}", data[ptr]);
-                //io::stdout().write(&[data[ptr] as u8]); 
+                //println!("DATA[PTR] {}", data[ptr]);
+                //println!("======================================");
+                io::stdout().write(&[data[ptr] as u8]); 
             },
             IN => data[ptr] = io::stdin()
                 .bytes()
@@ -85,12 +90,12 @@ pub fn interpret(state: State) {
                 .map(|byte| byte as i32)
                 .unwrap(),
             JMP_F => {
-                if data[ptr] != 0 {
+                if data[ptr] == 0 {
                     pc = program[pc].operand as usize;
                 }
             },
             JMP_BK => {
-                if data[ptr] == 0 {
+                if data[ptr] != 0 {
                     pc = program[pc].operand as usize;
                 }
             },
