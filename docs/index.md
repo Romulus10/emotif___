@@ -29,4 +29,4 @@ The emotif\*\*k equivalent is:
 
 `👍👍👍👍👍👍👍👍🌚🔥👍👍👍👍🌚🔥👍👍🔥👍👍👍🔥👍👍👍🔥👍💯💯💯💯💩🐸🔥👍🔥👍🔥💩🔥🔥👍🌚💯🐸💯💩🐸🔥🔥💞🔥💩💩💩💞👍👍👍👍👍👍👍💞💞👍👍👍💞🔥🔥💞💯💩💞💯💞👍👍👍💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥🔥👍💞🔥👍👍💞`
 
-"The only reason someone would do something like this if they could, which they can't, would be because they could, which they can't." - Rick Sanchez
+*"The only reason someone would do something like this if they could, which they can't, would be because they could, which they can't."* - Rick Sanchez
