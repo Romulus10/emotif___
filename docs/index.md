@@ -9,8 +9,8 @@ Brainf**k is an esoteric, Turing-complete programming language created in 1993 b
 ## Emotif**k
 This is our own special take on brainf**k - instead of the traditional commands, it uses UTF-8 emojis. The commands are as follows:
 
-| Emoji | UTF-8 Code Points |                 Unicode                  |    Meaning    |      |
-| :---: | :---------------: | :--------------------------------------: | :-----------: | :--: |
+| Emoji | UTF-8 Code Points |                 Unicode                  |    Meaning    | Brainf**k Equivalent |
+| :---: | :---------------: | :--------------------------------------: | :-----------: | :------------------: |
 |  🔥   |    F0 9F 94 A5    | [U+1F525](https://apps.timwhitlock.info/unicode/inspect/hex/1F525) |  Move Right   |  >   |
 |  💯   |    F0 9F 92 AF    | [U+1F4AF](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f4af) |   Move Left   |  <   |
 |  💩   |    F0 9F 92 A9    | [U+1F4A9](http://www.unicode.org/emoji/charts/full-emoji-list.html#1f4a9) |   Decrement   |  -   |
@@ -28,5 +28,8 @@ Programs are represented by strings of these emojis in text files. In brainf**k,
 The emotif\*\*k equivalent is:
 
 `😂😂😂😂😂😂😂😂🌚🔥😂😂😂😂🌚🔥😂😂🔥😂😂😂🔥😂😂😂🔥😂💯💯💯💯💩🐸🔥😂🔥😂🔥💩🔥🔥😂🌚💯🐸💯💩🐸🔥🔥💞🔥💩💩💩💞😂😂😂😂😂😂😂💞💞😂😂😂💞🔥🔥💞💯💩💞💯💞😂😂😂💞💩💩💩💩💩💩💞💩💩💩💩💩💩💩💩💞🔥🔥😂💞🔥😂😂💞`
+
+### Technical Specifications
+[src/interpreter/](interpreter.md)
 
 *"The only reason someone would do something like this if they could, which they can't, would be because they could, which they can't."* - Rick Sanchez
