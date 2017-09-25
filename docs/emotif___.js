@@ -14,36 +14,45 @@ function compile(program) {
     var pc = 0;
     var program_vec = program.split('');
     var instructions = new Array();
+    var operands = new Array();
     var stack = new Array();
     for (x in program_vec) {
         console.log(program_vec[x].charCodeAt(0));
         switch (program_vec[x].charCodeAt(0)) {
             case '🔥'.charCodeAt(0):
-                instructions.push([1,0]);
+                instructions.push(1);
+                operands.push(0);
                 break;
             case '💯'.charCodeAt(0):
-                instructions.push([2,0]);
+                instructions.push(2);
+                operands.push(0);
                 break;
             case '💩'.charCodeAt(0):
-                instructions.push([3,0]);
+                instructions.push(3);
+                operands.push(0);
                 break;
             case '👍'.charCodeAt(0):
-                instructions.push([4,0]);
+                instructions.push(4);
+                operands.push(0);
                 break;
             case '💞'.charCodeAt(0):
-                instructions.push([5,0]);
+                instructions.push(5);
+                operands.push(0);
                 break;
             case '🙏'.charCodeAt(0):
-                instructions.push([6,0]);
+                instructions.push(6);
+                operands.push(0);
                 break;
             case '🌚'.charCodeAt(0):
-                instructions.push([7,0]);
+                instructions.push(7);
+                operands.push(0);
                 stack.push(pc);
                 break;
             case '🐸'.charCodeAt(0):
                 var jmp_pc = stack.pop();
-                instructions.push([8,jmp_pc]);
-                program[jmp_pc][1] = pc;
+                instructions.push(8);
+                operands.push(jmp_pc);
+                operands[jmp_pc] = pc;
             default:
                 pc -= 1;
                 break;
@@ -83,11 +92,11 @@ function interpret(state) {
                 break;
             case 7: //jmp_f
                 if (data[ptr] == 0) {
-                    pc = program[pc][1];
+                    pc = operands[pc];
                 }
             case 8: //jmp_bk
                 if (data[ptr] != 0) {
-                    pc = program[pc][1];
+                    pc = operands[pc];
                 }
         }
         pc++;
