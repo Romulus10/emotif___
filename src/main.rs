@@ -12,7 +12,6 @@ mod core;
 mod interpreter;
 mod emotifuck_parser;
 
-use std::env;
 use std::process;
 use std::error::Error;
 use colored::Colorize;
