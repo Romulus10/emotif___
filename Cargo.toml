@@ -1,6 +1,6 @@
 [package]
 name = "emotif___"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Sean Batzel <romulus108@protonmail.com>", "Andrew Plaza <andrew.plaza@protonmail.com"]
 build = "src/build.rs"
 
