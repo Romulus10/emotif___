@@ -18,6 +18,14 @@ pub struct State {
     pub program: Vec<Instruction>,
     pub stack: Vec<i32>,
 }
+const MOVE_RIGHT: i32 = 1;
+const MOVE_LEFT: i32 = 2;
+const INC: i32 = 3;
+const DEC: i32 = 4;
+const JMP_F: i32 = 5;
+const OUT: i32 = 6;
+const IN: i32 = 7;
+const JMP_BK: i32 = 8;
 
 pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
     let mut program = Vec::new();
@@ -25,19 +33,19 @@ pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
     let mut pc = 0;
     for i in instruction_vector {
         match i {
-            Emotifuck::MoveRight => program.push(Instruction { op_code: 1, operand: 0 }),
-            Emotifuck::MoveLeft => program.push(Instruction { op_code: 2, operand: 0 }),
-            Emotifuck::Increment => program.push(Instruction { op_code: 3, operand: 0 }),
-            Emotifuck::Decrement => program.push(Instruction { op_code: 4, operand: 0 }),
+            Emotifuck::MoveRight => program.push(Instruction { op_code: MOVE_RIGHT, operand: 0 }),
+            Emotifuck::MoveLeft => program.push(Instruction { op_code: MOVE_LEFT, operand: 0 }),
+            Emotifuck::Increment => program.push(Instruction { op_code: INC, operand: 0 }),
+            Emotifuck::Decrement => program.push(Instruction { op_code: DEC, operand: 0 }),
             Emotifuck::JumpForward => {
-                program.push(Instruction { op_code: 5, operand: 0 });
+                program.push(Instruction { op_code: JMP_F, operand: 0 });
                 stack.push(pc)
             },
-            Emotifuck::Output => program.push(Instruction { op_code: 6, operand: 0 }),
-            Emotifuck::Input => program.push(Instruction { op_code: 7, operand: 0 }),
+            Emotifuck::Output => program.push(Instruction { op_code: OUT, operand: 0 }),
+            Emotifuck::Input => program.push(Instruction { op_code: IN, operand: 0 }),
             Emotifuck::JumpBackward => {
                 if let Some(x) = stack.pop() {
-                    program.push(Instruction { op_code: 8, operand: x });
+                    program.push(Instruction { op_code: JMP_BK, operand: x });
                     program[x as usize].operand = pc;
                 }
             },
