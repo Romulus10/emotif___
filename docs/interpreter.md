@@ -3,17 +3,15 @@
 The interpreter includes two `structs` and 9 `const` values which are used for internal representation.
 
 ### Constants
-| Constant  |
-| :------:  |
-| MOVR      | 
-| MOVL      |
-| INC       |
-| DEC       |
-| JMP_F     |
-| OUT       |
-| IN        |
-| JMP_BK    |
-| DATA_SIZE |
+`MOVR`<br/>
+`MOVL`<br/>
+`INC`<br/>
+`DEC`<br/>
+`JMP_F`<br/>
+`OUT`<br/>
+`IN`<br/>
+`JMP_BK`<br/>
+`DATA_SIZE`<br/>
 
 Each of these constants is used as an opcode in the `Instruction` structure and is used to determine what operation to carry out. The `DATA_SIZE` constant is used to define how large the 'memory tape' is supposed to be.
 
