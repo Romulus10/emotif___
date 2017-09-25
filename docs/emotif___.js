@@ -1,8 +1,13 @@
 function main() {
     console.log('Running program.');
-    var in_program = document.getElementById("in_program").value;
-    var output = interpret(compile(program));
-    document.getElementById("output").value = output;
+    var in_program = document.getElementById('in_program').value;
+    console.log('Program text: ' + in_program);
+    var intermediate = compile(in_program);
+    console.log('Intermediate: ' + intermediate);
+    var output = interpret(intermediate);
+    console.log('Output should be: ' + output);
+    document.getElementById('output').value = output;
+    console.log('Program is done.');
 }
 
 function compile(program) {
@@ -11,32 +16,33 @@ function compile(program) {
     var instructions = new Array();
     var stack = new Array();
     for (x in program_vec) {
-        switch (x) {
-            case '🔥':
-                instructions.push({1,0});
+        console.log(program_vec[x].charCodeAt(0));
+        switch (program_vec[x].charCodeAt(0)) {
+            case '🔥'.charCodeAt(0):
+                instructions.push([1,0]);
                 break;
-            case '💯':
-                instructions.push({2,0});
+            case '💯'.charCodeAt(0):
+                instructions.push([2,0]);
                 break;
-            case '💩':
-                instructions.push({3,0});
+            case '💩'.charCodeAt(0):
+                instructions.push([3,0]);
                 break;
-            case '👍':
-                instructions.push({4,0});
+            case '👍'.charCodeAt(0):
+                instructions.push([4,0]);
                 break;
-            case '💞':
-                instructions.push({5,0});
+            case '💞'.charCodeAt(0):
+                instructions.push([5,0]);
                 break;
-            case '🙏':
-                instructions.push({6,0});
+            case '🙏'.charCodeAt(0):
+                instructions.push([6,0]);
                 break;
-            case '🌚':
-                instructions.push({7,0});
+            case '🌚'.charCodeAt(0):
+                instructions.push([7,0]);
                 stack.push(pc);
                 break;
-            case '🐸':
+            case '🐸'.charCodeAt(0):
                 var jmp_pc = stack.pop();
-                instructions.push({8,jmp_pc});
+                instructions.push([8,jmp_pc]);
                 program[jmp_pc][1] = pc;
             default:
                 pc -= 1;
@@ -44,7 +50,8 @@ function compile(program) {
         }
         pc += 1;
     }
-    program.push({0,0});
+    instructions.push([0,0]);
+    return [instructions, stack];
 }
 
 function interpret(state) {
@@ -75,15 +82,15 @@ function interpret(state) {
                 console.log("Not implemented.");
                 break;
             case 7: //jmp_f
-                if data[ptr] == 0 {
+                if (data[ptr] == 0) {
                     pc = program[pc][1];
                 }
             case 8: //jmp_bk
-                if data[ptr] != 0 {
+                if (data[ptr] != 0) {
                     pc = program[pc][1];
                 }
         }
         pc++;
     }
-
+    return output;
 }
