@@ -26,7 +26,7 @@ const JMP_F: i32 = 5;
 const OUT: i32 = 6;
 const IN: i32 = 7;
 const JMP_BK: i32 = 8;
-const DATA_SIZE: i32 = 1024;
+const DATA_SIZE: usize = 1024;
 
 pub fn compile(instruction_vector: Vec<Emotifuck>) -> State {
     let mut program = Vec::new();
@@ -67,7 +67,7 @@ pub fn interpret(state: State) {
     let program = state.program.as_slice();
     let mut data = [0; DATA_SIZE];
     'prog: loop {
-        if pc >= DATA_SIZE;
+        if pc >= DATA_SIZE {};
         match program[pc].op_code {
             0 => {break 'prog},
             MOVR => ptr += 1,
@@ -75,7 +75,7 @@ pub fn interpret(state: State) {
             DEC => { data[ptr] -= 1 },
             INC => { data[ptr] += 1 },
             OUT => { 
-                //println!("DATA[PTR] {}", data[ptr]);
+                println!("DATA[PTR] {}", data[ptr]);
                 io::stdout().write(&[data[ptr] as u8]); 
             },
             IN => data[ptr] = io::stdin()
