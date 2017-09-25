@@ -68,13 +68,13 @@ pub fn interpret(state: State) {
                     pc = program[pc].operand as usize;
                 }
             },
-            6 => data[ptr] = io::stdin()
+            7 => data[ptr] = io::stdin()
                 .bytes()
                 .next()
                 .and_then(|result| result.ok())
                 .map(|byte| byte as i32)
                 .unwrap(),
-            7 => { io::stdout().write(&[data[ptr] as u8]); },
+            6 => { io::stdout().write(&[data[ptr] as u8]); },
             8 => {
                 if data[ptr] == 0 {
                     pc = program[pc].operand as usize;
