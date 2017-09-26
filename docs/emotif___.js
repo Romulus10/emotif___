@@ -90,6 +90,7 @@ function compile(program) {
                 pc--;
                 break;
         }
+        console.log(stack.toString());
         pc++;
     }
     instructions.push([0,0]);
