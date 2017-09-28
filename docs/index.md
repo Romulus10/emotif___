@@ -32,4 +32,6 @@ The emotif\*\*k equivalent is:
 ### Technical Specifications
 [src/interpreter/](interpreter.md)
 
+[Sample Brainf**k Interpreter](example.md)
+
 *"The only reason someone would do something like this if they could, which they can't, would be because they could, which they can't."* - Rick Sanchez
