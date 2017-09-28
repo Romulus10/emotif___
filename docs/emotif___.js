@@ -1,41 +1,37 @@
 function main() {
-    console.log('Running program.');
     var in_program = document.getElementById('in_program').value;
-    console.log('Program text: ' + in_program);
     var intermediate = compile(in_program);
-    console.log('Intermediate: ' + intermediate);
     var output = interpret(intermediate);
-    console.log('Output should be: ' + output);
     document.getElementById('output').value = output;
-    console.log('Program is done.');
 }
 
 function parse_vector(program) {
     program_vec = Array();
     for (var i = 0, len = program.length; i < len; i++) {
-        switch (program[i]) {
-            case '>':
+        var emoji = program[i].codePointAt(0);
+        switch (emoji) {
+            case '>'.codePointAt(0):
                 program_vec.push(1);
                 break;
-            case '<':
+            case '<'.codePointAt(0):
                 program_vec.push(2);
                 break;
-            case '-':
+            case '-'.codePointAt(0):
                 program_vec.push(3);
                 break;
-            case '+':
+            case '+'.codePointAt(0):
                 program_vec.push(4);
                 break;
-            case '.':
+            case '.'.codePointAt(0):
                 program_vec.push(5);
                 break;
-            case ',':
+            case ','.codePointAt(0):
                 program_vec.push(6);
                 break;
-            case '[':
+            case '['.codePointAt(0):
                 program_vec.push(7);
                 break;
-            case ']':
+            case ']'.codePointAt(0):
                 program_vec.push(8);
                 break;
         }
@@ -46,7 +42,6 @@ function parse_vector(program) {
 function compile(program) {
     var pc = 0;
     var program_vec = parse_vector(program);
-    console.log("Program vector: " + program_vec);
     var instructions = new Array();
     var operands = new Array();
     var stack = new Array();
@@ -90,7 +85,6 @@ function compile(program) {
                 pc--;
                 break;
         }
-        console.log(stack.toString());
         pc++;
     }
     instructions.push([0,0]);
@@ -104,7 +98,6 @@ function interpret(state) {
         data[i] = 0;
     }
     var output = "";
-    console.log("PC\tPTR\tDATA\tOP\tOPD")
     for (var x = 0; x < state[0].length; x++) {
         switch (state[0][x]) {
             case 0:
@@ -130,12 +123,13 @@ function interpret(state) {
                 if (data[ptr] == 0) {
                     x = state[1][x];
                 }
+                break;
             case 8: //jmp_bk
                 if (data[ptr] != 0) {
                     x = state[1][x];
                 }
+                break;
         }
-        console.log(x + "\t" + ptr + "\t" + data[ptr] + "\t" + state[0][x] + "\t" + state[1][x]);
     }
     return output;
 }
